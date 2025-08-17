@@ -493,7 +493,7 @@
         
         .btn-secondary {
             background: linear-gradient(to right, var(--info), #90caf9);
-            color: white;
+            color: black;
         }
         
         .btn-secondary:hover {
@@ -672,15 +672,15 @@
         
         /* Estilos adicionales para los juegos */
         .answer-btn.correct {
-            background: linear-gradient(to right, var(--success), #81c784);
-            border: 2px solid var(--success);
+            background: linear-gradient(to right,  #147324, #81c784);
+            border: 2px solid #147324;
             color: white;
         }
         
         .answer-btn.incorrect {
-            background: linear-gradient(to right, var(--warning), #ffcc80);
-            border: 2px solid var(--warning);
-            color: #5d4037;
+            background: linear-gradient(to right, #CC0808, #ffcc80);
+            border: 2px solid #CC0808;
+            color: white;
         }
         
         #retry-substitution-btn, #retry-elimination-btn, #retry-matrices-btn, 
@@ -739,13 +739,13 @@
             50% { transform: translateY(-15px); }
         }
         
-        .hero-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-shadow: 0 0 10px rgba(255, 183, 77, 0.5);
-            font-family: 'Chewy', cursive;
-        }
+       .hero-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    text-shadow: none;
+    font-family: 'Chewy', cursive;
+}
         
         .challenge {
             padding: 0 25px 25px;
@@ -782,22 +782,22 @@
             margin-top: 20px;
         }
         
-        .option-btn {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 30px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            font-family: 'Luckiest Guy', cursive;
-        }
+ .option-btn {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: #000000;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-family: 'Luckiest Guy', cursive;
+}
         
         .option-btn:hover {
             transform: scale(1.05);
@@ -809,14 +809,13 @@
         }
         
         .option-btn.correct {
-            background: linear-gradient(to right, var(--success), #81c784);
-            animation: correct-pulse 0.6s ease;
-        }
-        
-        .option-btn.incorrect {
-            background: linear-gradient(to right, var(--warning), #ffcc80);
-            animation: shake 0.5s ease;
-        }
+    background: linear-gradient(to right, #147324, #1a8c2f);
+    animation: correct-pulse 0.6s ease;
+}
+.option-btn.incorrect {
+    background: linear-gradient(to right, #CC0808, #e63946);
+    animation: shake 0.5s ease;
+}
         
         @keyframes correct-pulse {
             0% { transform: scale(1); }
@@ -831,6 +830,7 @@
         }
         
         .result-box {
+            color:  #147324;
             min-height: 50px;
             margin-top: 20px;
             padding: 15px;
@@ -907,7 +907,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: linear-gradient(135deg, var(--success), #81c784);
-            color: white;
+            color: #000000;
             padding: 40px;
             border-radius: 25px;
             font-size: 2.5rem;
@@ -926,204 +926,130 @@
             100% { transform: translate(-50%, -50%) scale(1); }
         }
         
-        /* Estilos para el juego de animalitos */
-        .animal-game {
-            width: 100%;
-            max-width: 700px;
-            margin: 0 auto;
-            font-family: 'Chewy', cursive;
-        }
-        
-        .game-board {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            background: linear-gradient(135deg, #9575cd, #7986cb);
-            border-radius: 25px;
-            border: 4px solid var(--secondary);
-            overflow: hidden;
-            margin-bottom: 25px;
-            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.2);
-        }
-        
-        .grid-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* Estilos para los pasos del método de igualación */
+        .steps-container {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            pointer-events: none;
-        }
-        
-        .grid-cell {
-            border: 1px dashed rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        .animal {
-            position: absolute;
-            font-size: 4rem;
-            cursor: move;
-            transition: transform 0.2s ease;
-            user-select: none;
-            z-index: 10;
-        }
-        
-        .animal:hover {
-            transform: scale(1.15);
-        }
-        
-        .animal.dragging {
-            transform: scale(1.3);
-            z-index: 20;
-        }
-        
-        .target-zone {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(102, 187, 106, 0.4), transparent);
-            border: 3px dashed var(--success);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse-target 2s infinite;
-        }
-        
-        @keyframes pulse-target {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.15); opacity: 1; }
-        }
-        
-        .animal-controls {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            margin-bottom: 25px;
+            margin: 30px 0;
         }
-        
-        .equation-display {
+        .step-box {
             background: rgba(255, 255, 255, 0.8);
-            padding: 15px 20px;
             border-radius: 15px;
-            font-size: 1.3rem;
-            margin: 15px;
-            display: inline-block;
-            border: 2px solid var(--primary);
+            padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 600;
+            border: 2px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        .step-box:hover {
+            transform: translateY(-5px);
+        }
+        .step-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .step-box h3::before {
+            content: attr(data-step);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        .step-example {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            border: 1px dashed var(--secondary);
+        }
+        .step-example strong {
+            color: var(--dark);
+        }
+        .step-example em {
+            color: var(--warning);
+            font-style: italic;
         }
         
-        .game-result {
-            margin-top: 20px;
+        /* Estilos para el juego de graficación */
+        .graph-game-container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            margin: 25px 0;
+        }
+        .coordinate-plane {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        /* Estilos para el juego de sustitución mágica */
+        .magic-game {
+            background: linear-gradient(135deg, #d1c4e9, #c5cae9);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .magic-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        .magic-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .step-number {
+            background: var(--primary);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .step-content {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        .magic-result {
+            margin-top: 25px;
+            text-align: center;
+        }
+        .result-question {
             font-size: 1.4rem;
             font-weight: bold;
-            min-height: 40px;
-            font-family: 'Chewy', cursive;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
-        
-        .game-result.success {
-            color: var(--success);
-        }
-        
-        .game-result.error {
-            color: var(--warning);
-        }
-        
-        .hint-btn {
-            background: linear-gradient(to right, var(--info), #90caf9);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            font-weight: bold;
-            font-family: 'Luckiest Guy', cursive;
-        }
-        
-        .hint-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .hint-text {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 15px;
-            display: none;
-            max-width: 500px;
-            margin: 15px auto;
-            border: 2px solid var(--info);
-            font-size: 1.2rem;
-            font-family: 'Quicksand', sans-serif;
-        }
-        
-        .celebration {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            display: none;
-        }
-        
-        .celebration.active {
-            display: block;
-        }
-        
-        .heart {
-            position: absolute;
-            font-size: 2.5rem;
-            color: var(--accent);
-            animation: heart-float 3s ease-out forwards;
-        }
-        
-        @keyframes heart-float {
-            0% {
-                transform: translateY(0) scale(0);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-60px) scale(1.2);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-120px) scale(0);
-                opacity: 0;
-            }
-        }
-        
-        .star {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: twinkle 3s infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+        .result-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
         
         /* Estilos para el juego de la balanza mágica */
@@ -1329,11 +1255,11 @@
             margin-bottom: 15px;
         }
         
-        .hint {
-            color: var(--warning);
-            font-style: italic;
-            font-size: 1.2rem;
-        }
+       .hint {
+    color: #000000;
+    font-style: italic;
+    font-size: 1.2rem;
+}
         
         .monsters-container {
             display: flex;
@@ -1545,6 +1471,11 @@
             padding: 5px;
         }
         
+        .animal-in-plate-eq {
+            font-size: 2.5rem;
+            margin: 2px;
+        }
+        
         .balance-stand-eq {
             width: 15px;
             height: 120px;
@@ -1604,18 +1535,22 @@
         .animal-block-eq {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 15px;
-            padding: 10px;
+            padding: 15px;
             cursor: grab;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             user-select: none;
             text-align: center;
-            min-width: 80px;
+            min-width: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .animal-block-eq:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
         
         .animal-block-eq:active {
@@ -1624,14 +1559,19 @@
         }
         
         .animal-icon-eq {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
+            font-size: 2.8rem;
+            margin-bottom: 8px;
         }
         
         .animal-value-eq {
             color: white;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            min-width: 30px;
+            text-align: center;
         }
         
         .game-controls-eq {
@@ -1650,11 +1590,11 @@
         }
         
         .game-result-eq.success {
-            color: var(--success);
+            color:  #147324;
         }
         
         .game-result-eq.error {
-            color: var(--warning);
+            color: #CC0808;
         }
         
         .hint-text-eq {
@@ -1668,16 +1608,22 @@
             border: 1px solid var(--info);
         }
         
-        .animal-in-plate-eq {
-            transform: scale(0.8);
+        /* Animaciones para los animales en la balanza */
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
-        
-        .animal-in-plate-eq .animal-icon-eq {
-            font-size: 2rem;
-        }
-        
-        .animal-in-plate-eq .animal-value-eq {
-            font-size: 1rem;
+        .animal-block-eq.added-to-plate {
+            animation: bounce-in 0.5s ease;
         }
         
         @media (max-width: 768px) {
@@ -1986,8 +1932,8 @@
                     Donde se cruzan los caminos, encontramos la solución.</p>
                     
                     <div class="equation">
-                        Camino 1: 🐶 + 🐱 = 6<br>
-                        Camino 2: 🐶 - 🐱 = 2
+                        Camino 1: 🐱 = 🐶 + 1<br>
+                        Camino 2: 🐱 = -🐶 + 5
                     </div>
                     
                     <p>Algunos pasos que puedes seguir son:</p>
@@ -2018,65 +1964,76 @@ Ayuda a entender cómo se relacionan dos variables y cómo resolverlas al mismo 
                     </div>
                 </div>
                 <div class="section">
-                    <h2><i class="fas fa-image"></i> Visualización Gráfica</h2>
-                    <div class="image-gallery">
-                        <div class="image-container">
-                            <img src="https://i.ytimg.com/vi/eSyxux-WeZY/maxresdefault.jpg" alt="Gráfica de sistema">
-                            <div class="image-caption">Caminos que se cruzan</div>
-                        </div>
-                        <div class="image-container">
-                            <img src="https://i.ytimg.com/vi/QU2Qbp5v5d4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBvbMTwbqenznpCG_C4RL6sg3mI0A" alt="Pendiente-intercepto">
-                            <div class="image-caption">Dirección de los caminos</div>
-                        </div>
-                        <div class="image-container">
-                            <img src="https://screens.cdn.wordwall.net/400/e38366ce59a448759d4848b612804e42_0" alt="Animales">
-                            <div class="image-caption">Nuestros amigos animales</div>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <h2><i class="fas fa-gamepad"></i> Juego: Encuentro de Animalitos</h2>
-                        <div class="game-container">
-                            <h3 class="game-title">¡Ayuda a los animalitos a encontrarse!</h3>
-                            <p class="game-description">Arrastra el perrito y el gatito al punto correcto donde se cruzan sus caminos.</p>
-                            <div class="animal-game">
-                                <div class="animal-controls">
-                                    <div class="equation-display">
-                                        Camino 1: 🐱 = 🐶 + 1
-                                    </div>
-                                    <div class="equation-display">
-                                        Camino 2: 🐱 = -🐶 + 5
-                                    </div>
-                                </div>
-                                <div class="game-board" id="game-board">
-                                    <div class="grid-overlay" id="grid-overlay"></div>
-                                    <div class="target-zone" id="target-zone" style="top: 30%; left: 50%;">
-                                        <i class="fas fa-heart" style="color: var(--success); font-size: 2.5rem;"></i>
-                                    </div>
-                                    <div class="animal" id="dog" style="top: 80%; left: 20%;">
-                                        🐶
-                                    </div>
-                                    <div class="animal" id="cat" style="top: 20%; left: 80%;">
-                                        🐱
-                                    </div>
-                                    <div class="celebration" id="celebration"></div>
-                                </div>
-                                <div class="game-result" id="game-result"></div>
-                                <div style="margin-top: 25px;">
-                                    <button id="check-answer" class="btn">
-                                        <i class="fas fa-check"></i> Verificar
-                                    </button>
-                                    <button id="reset-graph-game" class="btn btn-secondary">
-                                        <i class="fas fa-redo"></i> Reiniciar
-                                    </button>
-                                    <button id="hint-btn" class="hint-btn">
-                                        <i class="fas fa-lightbulb"></i> Pista
-                                    </button>
-                                </div>
-                                <div class="hint-text" id="hint-text">
-                                    ¡Los animalitos deben encontrarse en el punto (2, 3)! 
-                                    Arrastra el perrito y el gatito al centro del corazón verde.
-                                </div>
+                    <h2><i class="fas fa-gamepad"></i> Juego: Aventura en el Plano Cartesiano</h2>
+                    <div class="game-container">
+                        <h3 class="game-title">¡Ayuda a los animales a encontrar su punto de encuentro!</h3>
+                        <p class="game-description">Cada animal sigue un camino diferente. Arrastra los animales al punto donde se cruzan sus caminos.</p>
+                        
+                        <div class="graph-game-container">
+                            <div class="coordinate-plane">
+                                <svg id="graph-svg" width="500" height="400">
+                                    <!-- Ejes X e Y -->
+                                    <line x1="50" y1="350" x2="450" y2="350" stroke="#333" stroke-width="2"/>
+                                    <line x1="250" y1="50" x2="250" y2="350" stroke="#333" stroke-width="2"/>
+                                    
+                                    <!-- Flechas de los ejes -->
+                                    <polygon points="450,350 440,345 440,355" fill="#333"/>
+                                    <polygon points="250,50 245,60 255,60" fill="#333"/>
+                                    
+                                    <!-- Etiquetas de los ejes -->
+                                    <text x="460" y="355" font-size="16" font-weight="bold">X</text>
+                                    <text x="255" y="45" font-size="16" font-weight="bold">Y</text>
+                                    
+                                    <!-- Marcas en los ejes -->
+                                    <g id="x-marks"></g>
+                                    <g id="y-marks"></g>
+                                    
+                                    <!-- Rectas -->
+                                    <line id="line1" x1="250" y1="300" x2="450" y2="150" stroke="#64b5f6" stroke-width="3"/>
+                                    <line id="line2" x1="250" y1="150" x2="450" y2="300" stroke="#ffb74d" stroke-width="3"/>
+                                    
+                                    <!-- Puntos de intersección -->
+                                    <circle id="intersection" cx="350" cy="200" r="8" fill="#e53935" stroke="#fff" stroke-width="2"/>
+                                    
+                                    <!-- Etiqueta del punto de intersección -->
+                                    <text x="365" y="195" font-size="14" font-weight="bold" fill="#e53935">(2, 3)</text>
+                                    
+                                    <!-- Animales en punto de partida (0,0) -->
+                                    <g id="dog-animal" transform="translate(250, 350)">
+                                        <circle r="25" fill="#fff" stroke="#9c64a6" stroke-width="2"/>
+                                        <text x="0" y="8" text-anchor="middle" font-size="30">🐶</text>
+                                    </g>
+                                    
+                                    <g id="cat-animal" transform="translate(250, 350)">
+                                        <circle r="25" fill="#fff" stroke="#9c64a6" stroke-width="2"/>
+                                        <text x="0" y="8" text-anchor="middle" font-size="30">🐱</text>
+                                    </g>
+                                </svg>
                             </div>
+                            
+                            <div class="equation-display">
+                                <div>Camino del perro: 🐱 = 🐶 + 1</div>
+                                <div>Camino del gato: 🐱 = -🐶 + 5</div>
+                            </div>
+                            
+                            <div class="game-controls">
+                                <button id="check-graph-btn" class="btn">
+                                    <i class="fas fa-check"></i> Verificar
+                                </button>
+                                <button id="reset-graph-btn" class="btn btn-secondary">
+                                    <i class="fas fa-redo"></i> Reiniciar
+                                </button>
+                                <button id="hint-graph-btn" class="hint-btn">
+                                    <i class="fas fa-lightbulb"></i> Pista
+                                </button>
+                            </div>
+                            
+                            <div id="graph-hint" class="hint-text">
+                                ¡Los animales deben encontrarse en el punto (2, 3)! 
+                                Busca el punto rojo en el plano cartesiano.
+                            </div>
+                            
+                            <div id="graph-result" class="game-result"></div>
                         </div>
                     </div>
                 </div>
@@ -2085,68 +2042,109 @@ Ayuda a entender cómo se relacionan dos variables y cómo resolverlas al mismo 
             <div class="tab-content" id="substitution">
                 <div class="section">
                     <h2><i class="fas fa-exchange-alt"></i> Método de Sustitución con Animales</h2>
-                    <p>Es como cambiar un animal por su valor en una ecuación. 
-                    Primero descubrimos cuánto vale un animal y luego lo usamos en la otra ecuación.</p>
+                    <p>El método de sustitución consiste en despejar una variable en una ecuación y reemplazarla en la otra.</p>
                     
-                    <div class="equation">
-                        ✏️ Pasos del método de sustitución:
-                        <br>
-                      1. Descubre cuánto vale un animal en una ecuación.
-<br>
-2. Cambia ese animal por su valor en la otra ecuación.
-<br>
-3. Resuelve la ecuación que queda con un solo animal.
-<br>
-4. Usa el valor encontrado para descubrir el otro animal.
-<br>
-5. Verifica que los valores funcionen en ambas ecuaciones.
-                    </div>
-                    
-                    <p><strong>Ejemplo:</strong><br>
-                    🐶 + 🐱 = 6 (Ecuación 1)<br>
-                    🐶 - 🐱 = 2 (Ecuación 2)</p>
-                    
-                    <p>solución:<br>
-                    🐶 = 4, 🐱 = 2</p>
-                    
-                    <div class="info-box">
-                        <h3><i class="fas fa-lightbulb"></i> 🧠 5 Consejos útiles para resolver con animales</h3>
-                        <p>
-✅ Elige la ecuación más fácil para empezar
-Si alguna ecuación tiene un animal solo, comienza por ahí.
-<br>
-✍️ Cambia el animal con cuidado
-Cuando reemplazes un animal por su valor, asegúrate de hacerlo correctamente.
-<br>
-🧩 Resuelve paso a paso
-Realiza cada operación con calma para evitar errores.
-<br>
-📌 Verifica tu respuesta
-Sustituye los valores de los animales en ambas ecuaciones originales.
-<br>
-📓 Practica con ejemplos fáciles primero
-Comienza con números pequeños para dominar el método.</p>
+                    <div class="steps-container">
+                        <div class="step-box" data-step="1">
+                            <h3>Paso 1: Despejar una variable</h3>
+                            <p>Elige una ecuación y despeja una de las variables (animales). Es más fácil si el coeficiente es 1.</p>
+                            <div class="step-example">
+                                <strong>Ejemplo:</strong><br>
+                                🐶 + 🐱 = 6<br>
+                                🐶 - 🐱 = 2<br><br>
+                                Despejamos 🐶 en la primera ecuación:<br>
+                                🐶 = 6 - 🐱
+                            </div>
+                        </div>
+                        
+                        <div class="step-box" data-step="2">
+                            <h3>Paso 2: Sustituir en la otra ecuación</h3>
+                            <p>Reemplaza la expresión obtenida en la otra ecuación.</p>
+                            <div class="step-example">
+                                Sustituimos 🐶 en la segunda ecuación:<br>
+                                (6 - 🐱) - 🐱 = 2
+                            </div>
+                        </div>
+                        
+                        <div class="step-box" data-step="3">
+                            <h3>Paso 3: Resolver para la variable restante</h3>
+                            <p>Resuelve la ecuación resultante para encontrar el valor de la variable que queda.</p>
+                            <div class="step-example">
+                                6 - 🐱 - 🐱 = 2<br>
+                                6 - 2🐱 = 2<br>
+                                -2🐱 = 2 - 6<br>
+                                -2🐱 = -4<br>
+                                🐱 = 2
+                            </div>
+                        </div>
+                        
+                        <div class="step-box" data-step="4">
+                            <h3>Paso 4: Sustituir para encontrar la otra variable</h3>
+                            <p>Usa el valor encontrado para despejar la otra variable.</p>
+                            <div class="step-example">
+                                Sustituimos 🐱 = 2 en la primera ecuación:<br>
+                                🐶 + 2 = 6<br>
+                                🐶 = 4
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="section">
-                    <h2><i class="fas fa-gamepad"></i> Juego: Sustitución Rápida</h2>
+                    <h2><i class="fas fa-gamepad"></i> Juego: Sustitución Mágica</h2>
                     <div class="game-container">
-                        <h3 class="game-title">Encuentra el Valor Correcto</h3>
-                        <p class="game-description">Resuelve el sistema usando sustitución:</p>
-                        <div style="font-size: 1.5rem; margin: 25px 0;">
-                            🐶 = 2🐱 - 1<br>
-                            3🐶 + 🐱 = 11
+                        <h3 class="game-title">¡Ayuda al mago a transformar los animales!</h3>
+                        <p class="game-description">Usa la sustitución para descubrir el valor de cada animal:</p>
+                        
+                        <div class="magic-game">
+                            <div class="equation-box">
+                                🐶 = 2🐱 - 1<br>
+                                3🐶 + 🐱 = 11
+                            </div>
+                            
+                            <div class="magic-steps">
+                                <div class="magic-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        Sustituye 🐶 en la segunda ecuación:<br>
+                                        3(2🐱 - 1) + 🐱 = 11
+                                    </div>
+                                </div>
+                                
+                                <div class="magic-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        Resuelve para 🐱:<br>
+                                        6🐱 - 3 + 🐱 = 11<br>
+                                        7🐱 = 14<br>
+                                        🐱 = 2
+                                    </div>
+                                </div>
+                                
+                                <div class="magic-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        Encuentra 🐶:<br>
+                                        🐶 = 2(2) - 1 = 3
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="magic-result">
+                                <div class="result-question">¿Cuál es el valor de cada animal?</div>
+                                <div class="result-options">
+                                    <button class="btn answer-btn" data-answer="🐶=2, 🐱=3">🐶=2, 🐱=3</button>
+                                    <button class="btn answer-btn" data-answer="🐶=3, 🐱=2">🐶=3, 🐱=2</button>
+                                    <button class="btn answer-btn" data-answer="🐶=4, 🐱=2">🐶=4, 🐱=2</button>
+                                    <button class="btn answer-btn" data-answer="🐶=2, 🐱=4">🐶=2, 🐱=4</button>
+                                </div>
+                            </div>
+                            
+                            <div id="magic-result" class="game-result"></div>
+                            <button id="retry-magic-btn" class="btn" style="display: none; margin-top: 20px;">
+                                <i class="fas fa-redo"></i> Volver a intentar
+                            </button>
                         </div>
-                        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 25px 0;">
-                            <button class="btn answer-btn" data-answer="🐶=2, 🐱=3">🐶=2, 🐱=3</button>
-                            <button class="btn answer-btn" data-answer="🐶=3, 🐱=2">🐶=3, 🐱=2</button>
-                            <button class="btn answer-btn" data-answer="🐶=4, 🐱=2">🐶=4, 🐱=2</button>
-                            <button class="btn answer-btn" data-answer="🐶=2, 🐱=4">🐶=2, 🐱=4</button>
-                        </div>
-                        <div id="substitution-result" style="margin-top: 25px; font-size: 1.4rem;"></div>
-                        <button id="retry-substitution-btn" class="btn" style="display: none; margin-top: 20px;">
-                            <i class="fas fa-redo"></i> Volver a intentar
-                        </button>
                     </div>
                 </div>
             </div>
@@ -2156,38 +2154,54 @@ Comienza con números pequeños para dominar el método.</p>
                     <h2><i class="fas fa-balance-scale"></i> Método de Igualación con Animales</h2>
                     <p>El método de igualación consiste en despejar el mismo animal en ambas ecuaciones y luego igualar las expresiones.</p>
                     
-                    <div class="equation">
-                        1. Despejar el mismo animal en ambas ecuaciones<br>
-                        2. Igualar las expresiones<br>
-                        3. Resolver para un animal<br>
-                        4. Sustituir para encontrar el otro animal
-                    </div>
-                    
-                    <p><strong>Ejemplo:</strong><br>
-                    🐶 + 🐱 = 6<br>
-                    🐶 - 🐱 = 2</p>
-                    
-                    <p>Paso 1: De la primera: 🐶 = 6 - 🐱<br>
-                    De la segunda: 🐶 = 2 + 🐱<br>
-                    Paso 2: 6 - 🐱 = 2 + 🐱<br>
-                    Paso 3: 6 - 2 = 🐱 + 🐱 → 4 = 2🐱 → 🐱 = 2<br>
-                    Paso 4: 🐶 = 6 - 2 = 4</p>
-                    
-                    <div class="image-gallery">
-                        <div class="image-container">
-                            <img src="https://i.ytimg.com/vi/NgY81umzogY/maxresdefault.jpg" alt="Igualación">
-                            <div class="image-caption">Igualando expresiones</div>
+                    <div class="steps-container">
+                        <div class="step-box" data-step="1">
+                            <h3>Paso 1: Despejar el mismo animal en ambas ecuaciones</h3>
+                            <p>Elige una variable (animal) y despeja su valor en ambas ecuaciones. Es más fácil si el coeficiente es 1.</p>
+                            <div class="step-example">
+                                <strong>Ejemplo:</strong><br>
+                                🐶 + 🐱 = 6<br>
+                                🐶 - 🐱 = 2<br><br>
+                                Despejamos 🐶 en ambas ecuaciones:<br>
+                                🐶 = 6 - 🐱 (de la primera)<br>
+                                🐶 = 2 + 🐱 (de la segunda)
+                            </div>
                         </div>
-                        <div class="image-container">
-                            <img src="https://cdn.fisimat.com.mx/wp-content/uploads/2015/05/despeje.png" alt="Animales">
-                            <div class="image-caption">Animales iguales</div>
+                        
+                        <div class="step-box" data-step="2">
+                            <h3>Paso 2: Igualar las expresiones</h3>
+                            <p>Como ambas expresiones son iguales a 🐶, podemos igualarlas entre sí.</p>
+                            <div class="step-example">
+                                Igualamos las expresiones:<br>
+                                6 - 🐱 = 2 + 🐱
+                            </div>
+                        </div>
+                        
+                        <div class="step-box" data-step="3">
+                            <h3>Paso 3: Resolver para el animal restante</h3>
+                            <p>Resuelve la ecuación resultante para encontrar el valor del animal que queda.</p>
+                            <div class="step-example">
+                                6 - 🐱 = 2 + 🐱<br>
+                                6 - 2 = 🐱 + 🐱<br>
+                                4 = 2🐱<br>
+                                🐱 = 2
+                            </div>
+                        </div>
+                        
+                        <div class="step-box" data-step="4">
+                            <h3>Paso 4: Sustituir para encontrar el otro animal</h3>
+                            <p>Usa el valor encontrado en una de las expresiones originales para encontrar el valor del otro animal.</p>
+                            <div class="step-example">
+                                Sustituimos 🐱 = 2 en la primera expresión:<br>
+                                🐶 = 6 - 2 = 4
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="section">
                     <h2><i class="fas fa-gamepad"></i> Juego: Balanza de Animales</h2>
                     <div class="game-container">
-                        <h3 class="game-title">¡Equilibra la Balanza con Animales!</h3>
+                        <h3 class="game-title">¡Equilibra la balanza con los animales!</h3>
                         <p class="game-description">Arrastra los animales a cada lado de la balanza. Cuando ambos lados tengan el mismo valor, la balanza se equilibrará.</p>
                         
                         <div class="equalization-game">
@@ -2268,39 +2282,63 @@ Comienza con números pequeños para dominar el método.</p>
                     <p>El método de eliminación consiste en sumar o restar las ecuaciones para eliminar un animal.</p>
                     
                     <div class="equation">
-                        1. Multiplicar ecuaciones si es necesario<br>
-                        2. Sumar o restar las ecuaciones para eliminar un animal<br>
-                        3. Resolver para el animal restante<br>
-                        4. Sustituir para encontrar el otro animal
+                        Pasos para operar con el método de eliminación:
                     </div>
                     
                     <p><strong>Ejemplo:</strong><br>
                     2🐶 + 3🐱 = 14<br>
                     4🐶 - 3🐱 = 10</p>
                     
-                    <p>Paso 1: Los coeficientes de 🐱 ya son opuestos<br>
-                    Paso 2: Sumar las ecuaciones: (2🐶 + 4🐶) + (3🐱 - 3🐱) = 14 + 10 → 6🐶 = 24<br>
-                    Paso 3: 🐶 = 4<br>
-                    Paso 4: 2(4) + 3🐱 = 14 → 8 + 3🐱 = 14 → 3🐱 = 6 → 🐱 = 2</p>
+                    <div class="steps-container">
+                        <div class="step-box" data-step="1">
+                            <h3>Paso 1: Multiplicar ecuaciones si es necesario</h3>
+                            <p>Si los coeficientes de un animal no son opuestos, multiplica una o ambas ecuaciones por números para hacerlos opuestos.</p>
+                            <div class="step-example">
+                                En nuestro ejemplo, los coeficientes de 🐱 ya son opuestos: <strong>3</strong> y <strong>-3</strong>.
+                            </div>
+                        </div>
+                        <div class="step-box" data-step="2">
+                            <h3>Paso 2: Sumar o restar las ecuaciones</h3>
+                            <p>Suma o resta las ecuaciones para eliminar un animal. Esto te dejará una ecuación con un solo animal.</p>
+                            <div class="step-example">
+                                Sumamos: <strong>(2🐶 + 4🐶) + (3🐱 - 3🐱) = 14 + 10</strong> <br>→ <em>6🐶 = 24</em>
+                            </div>
+                        </div>
+                        <div class="step-box" data-step="3">
+                            <h3>Paso 3: Resolver para el animal restante</h3>
+                            <p>Resuelve la ecuación resultante para encontrar el valor del animal que queda.</p>
+                            <div class="step-example">
+                                <strong>6🐶 = 24</strong> <br> → <strong>6🐶/6 = 24/6 </strong> <br> →<em>🐶 = 4</em>
+                            </div>
+                        </div>
+                        <div class="step-box" data-step="4">
+                            <h3>Paso 4: Sustituir para encontrar el otro animal</h3>
+                            <p>Usa el valor encontrado en una de las ecuaciones originales para encontrar el valor del otro animal.</p>
+                            <div class="step-example">
+                                Sustituimos 🐶=4 en la primera ecuación: <br><strong>2(4) + 3🐱 = 14</strong> <br>→ <em>8 + 3🐱 = 14</em> <br>→ <em>3🐱 = 6</em> <br>→ <em>🐱 = 2</em>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="info-box">
                         <h3><i class="fas fa-star"></i> Ventaja</h3>
                         <p>➕ Es directo y ordenado:
-Te permite eliminar un animal al sumar o restar las ecuaciones.
-<br>
-🧮 Ideal cuando los animales ya tienen valores opuestos:
-Si un animal tiene los mismos números pero con signos contrarios.
-<br>
-🧠 Ayuda a evitar fracciones desde el inicio:
-En muchos casos, puedes resolver todo con números enteros.
-<br>
-⚙️ Fácil de aplicar a sistemas más grandes:
-El mismo método se puede extender a sistemas con más animales.
-<br>
-🔁 Menos pasos de sustitución o despeje:
-Aquí trabajas con las ecuaciones completas, lo que ahorra tiempo.</p>
+                            Te permite eliminar un animal al sumar o restar las ecuaciones.
+                            <br>
+                            🧮 Ideal cuando los animales ya tienen valores opuestos:
+                            Si un animal tiene los mismos números pero con signos contrarios.
+                            <br>
+                            🧠 Ayuda a evitar fracciones desde el inicio:
+                            En muchos casos, puedes resolver todo con números enteros.
+                            <br>
+                            ⚙️ Fácil de aplicar a sistemas más grandes:
+                            El mismo método se puede extender a sistemas con más animales.
+                            <br>
+                            🔁 Menos pasos de sustitución o despeje:
+                            Aquí trabajas con las ecuaciones completas, lo que ahorra tiempo.</p>
                     </div>
                 </div>
+                
                 <div class="section">
                     <h2><i class="fas fa-gamepad"></i> Juego: Elimina el Monstruo de las Ecuaciones</h2>
                     <div class="game-container">
@@ -2383,13 +2421,14 @@ Aquí trabajas con las ecuaciones completas, lo que ahorra tiempo.</p>
                         </div>
                     
                         <div class="game-card">
-                            <h3>Detetive Matemático</h3>
+                            <h3>Detective Matemático</h3>
                             <p>Resuelve casos usando sistemas de ecuaciones.</p>
                             <a href="https://wordwall.net/es/resource/76941981/sistema-de-ecuaciones" class="btn">Jugar</a>
                         </div>
                     </div>
                 </div>
-        
+            </div>
+        </div>
         <footer>
             <p>© 2025 Sistemas de Ecuaciones con Animales | Diseñado para que todos puedan aprender matemáticas de forma divertida</p>
         </footer>
@@ -2589,7 +2628,7 @@ Aquí trabajas con las ecuaciones completas, lo que ahorra tiempo.</p>
                 // Verificar si la respuesta es correcta
                 if (method === correctAnswers[system]) {
                     this.classList.add('correct');
-                    resultBox.innerHTML = `<div style="color: var(--success); background: rgba(102, 187, 106, 0.2); padding: 15px; border-radius: 15px;"><i class="fas fa-check-circle"></i> ${explanations[system][method]}</div>`;
+                    resultBox.innerHTML = `<div style="color: #147324; background: rgba(20, 115, 36, 0.2); padding: 15px; border-radius: 15px;"><i class="fas fa-check-circle"></i> ${explanations[system][method]}</div>`;
                     
                     // Incrementar puntuación
                     score++;
@@ -2616,7 +2655,7 @@ Aquí trabajas con las ecuaciones completas, lo que ahorra tiempo.</p>
                     }
                 } else {
                     this.classList.add('incorrect');
-                    resultBox.innerHTML = `<div style="color: var(--warning); background: rgba(255, 183, 77, 0.2); padding: 15px; border-radius: 15px;"><i class="fas fa-times-circle"></i> ${explanations[system][method]}</div>`;
+                    resultBox.innerHTML = `<div style="color: #CC0808; background: rgba(204, 8, 8, 0.2); padding: 15px; border-radius: 15px;"><i class="fas fa-times-circle"></i> ${explanations[system][method]}</div>`;
                 }
             });
         });
@@ -2696,510 +2735,609 @@ Aquí trabajas con las ecuaciones completas, lo que ahorra tiempo.</p>
             });
         });
         
-        // Juego de sustitución
-        const substitutionAnswerBtns = document.querySelectorAll('#substitution .answer-btn');
-        const substitutionResultDiv = document.getElementById('substitution-result');
-        const substitutionRetryBtn = document.getElementById('retry-substitution-btn');
-        
-        // Función para reiniciar el juego de sustitución
-        function resetSubstitutionGame() {
-            substitutionResultDiv.innerHTML = '';
-            substitutionRetryBtn.style.display = 'none';
-            substitutionAnswerBtns.forEach(btn => {
-                btn.disabled = false;
-                btn.classList.remove('correct', 'incorrect');
+        // Juego de graficación
+        document.addEventListener('DOMContentLoaded', function() {
+            // Crear marcas en los ejes
+            const xMarks = document.getElementById('x-marks');
+            const yMarks = document.getElementById('y-marks');
+            
+            for (let i = 1; i <= 4; i++) {
+                // Marcas en el eje X
+                const xMark = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                xMark.setAttribute('x1', 250 + i * 50);
+                xMark.setAttribute('y1', 345);
+                xMark.setAttribute('x2', 250 + i * 50);
+                xMark.setAttribute('y2', 355);
+                xMark.setAttribute('stroke', '#333');
+                xMark.setAttribute('stroke-width', '1');
+                xMarks.appendChild(xMark);
+                
+                const xText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                xText.setAttribute('x', 250 + i * 50);
+                xText.setAttribute('y', 370);
+                xText.setAttribute('text-anchor', 'middle');
+                xText.setAttribute('font-size', '14');
+                xText.textContent = i;
+                xMarks.appendChild(xText);
+                
+                // Marcas en el eje X negativas
+                const xMarkNeg = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                xMarkNeg.setAttribute('x1', 250 - i * 50);
+                xMarkNeg.setAttribute('y1', 345);
+                xMarkNeg.setAttribute('x2', 250 - i * 50);
+                xMarkNeg.setAttribute('y2', 355);
+                xMarkNeg.setAttribute('stroke', '#333');
+                xMarkNeg.setAttribute('stroke-width', '1');
+                xMarks.appendChild(xMarkNeg);
+                
+                const xTextNeg = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                xTextNeg.setAttribute('x', 250 - i * 50);
+                xTextNeg.setAttribute('y', 370);
+                xTextNeg.setAttribute('text-anchor', 'middle');
+                xTextNeg.setAttribute('font-size', '14');
+                xTextNeg.textContent = -i;
+                xMarks.appendChild(xTextNeg);
+                
+                // Marcas en el eje Y
+                const yMark = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                yMark.setAttribute('x1', 245);
+                yMark.setAttribute('y1', 350 - i * 50);
+                yMark.setAttribute('x2', 255);
+                yMark.setAttribute('y2', 350 - i * 50);
+                yMark.setAttribute('stroke', '#333');
+                yMark.setAttribute('stroke-width', '1');
+                yMarks.appendChild(yMark);
+                
+                const yText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                yText.setAttribute('x', 235);
+                yText.setAttribute('y', 355 - i * 50);
+                yText.setAttribute('text-anchor', 'end');
+                yText.setAttribute('font-size', '14');
+                yText.textContent = i;
+                yMarks.appendChild(yText);
+                
+                // Marcas en el eje Y negativas
+                const yMarkNeg = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                yMarkNeg.setAttribute('x1', 245);
+                yMarkNeg.setAttribute('y1', 350 + i * 50);
+                yMarkNeg.setAttribute('x2', 255);
+                yMarkNeg.setAttribute('y2', 350 + i * 50);
+                yMarkNeg.setAttribute('stroke', '#333');
+                yMarkNeg.setAttribute('stroke-width', '1');
+                yMarks.appendChild(yMarkNeg);
+                
+                const yTextNeg = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                yTextNeg.setAttribute('x', 235);
+                yTextNeg.setAttribute('y', 355 + i * 50);
+                yTextNeg.setAttribute('text-anchor', 'end');
+                yTextNeg.setAttribute('font-size', '14');
+                yTextNeg.textContent = -i;
+                yMarks.appendChild(yTextNeg);
+            }
+            
+            // Configurar arrastre para los animales
+            const dogAnimal = document.getElementById('dog-animal');
+            const catAnimal = document.getElementById('cat-animal');
+            const intersection = document.getElementById('intersection');
+            const graphResult = document.getElementById('graph-result');
+            const graphHint = document.getElementById('graph-hint');
+            const checkGraphBtn = document.getElementById('check-graph-btn');
+            const resetGraphBtn = document.getElementById('reset-graph-btn');
+            const hintGraphBtn = document.getElementById('hint-graph-btn');
+            
+            let isDragging = false;
+            let currentAnimal = null;
+            let startX, startY;
+            
+            function startDrag(e, animal) {
+                isDragging = true;
+                currentAnimal = animal;
+                
+                const svg = document.getElementById('graph-svg');
+                const pt = svg.createSVGPoint();
+                pt.x = e.clientX;
+                pt.y = e.clientY;
+                const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+                
+                startX = svgP.x;
+                startY = svgP.y;
+                
+                e.preventDefault();
+            }
+            
+            function drag(e) {
+                if (!isDragging || !currentAnimal) return;
+                
+                const svg = document.getElementById('graph-svg');
+                const pt = svg.createSVGPoint();
+                pt.x = e.clientX;
+                pt.y = e.clientY;
+                const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+                
+                const dx = svgP.x - startX;
+                const dy = svgP.y - startY;
+                
+                const transform = currentAnimal.getAttribute('transform');
+                const match = transform.match(/translate\(([^,]+),([^)]+)\)/);
+                if (match) {
+                    const x = parseFloat(match[1]) + dx;
+                    const y = parseFloat(match[2]) + dy;
+                    
+                    // Limitar al área del SVG
+                    const clampedX = Math.max(50, Math.min(450, x));
+                    const clampedY = Math.max(50, Math.min(350, y));
+                    
+                    currentAnimal.setAttribute('transform', `translate(${clampedX}, ${clampedY})`);
+                    
+                    startX = svgP.x;
+                    startY = svgP.y;
+                }
+            }
+            
+            function endDrag() {
+                isDragging = false;
+                currentAnimal = null;
+            }
+            
+            // Event listeners para el perro
+            dogAnimal.addEventListener('mousedown', (e) => startDrag(e, dogAnimal));
+            dogAnimal.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                startDrag(touch, dogAnimal);
             });
-        }
-        
-        // Event listener para los botones de respuesta de sustitución
-        substitutionAnswerBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Deshabilitamos los botones para evitar múltiples clics
-                substitutionAnswerBtns.forEach(b => b.disabled = true);
+            
+            // Event listeners para el gato
+            catAnimal.addEventListener('mousedown', (e) => startDrag(e, catAnimal));
+            catAnimal.addEventListener('touchstart', (e) => {
+                const touch = e.touches[0];
+                startDrag(touch, catAnimal);
+            });
+            
+            // Event listeners globales para el arrastre
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', endDrag);
+            document.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    drag(e.touches[0]);
+                }
+            });
+            document.addEventListener('touchend', endDrag);
+            
+            // Verificar si los animales están en el punto de intersección
+            checkGraphBtn.addEventListener('click', function() {
+                const dogTransform = dogAnimal.getAttribute('transform');
+                const catTransform = catAnimal.getAttribute('transform');
                 
-                const selectedAnswer = this.getAttribute('data-answer');
-                const correctAnswer = '🐶=3, 🐱=2';
+                const dogMatch = dogTransform.match(/translate\(([^,]+),([^)]+)\)/);
+                const catMatch = catTransform.match(/translate\(([^,]+),([^)]+)\)/);
                 
-                if (selectedAnswer === correctAnswer) {
-                    substitutionResultDiv.innerHTML = `
-                        <div style="color: var(--success); padding: 20px; border-radius: 15px; background: rgba(102, 187, 106, 0.2);">
-                            <i class="fas fa-check-circle"></i> ¡Correcto! La solución es 🐶=3, 🐱=2
-                        </div>
-                    `;
-                    this.classList.add('correct');
+                if (dogMatch && catMatch) {
+                    const dogX = parseFloat(dogMatch[1]);
+                    const dogY = parseFloat(dogMatch[2]);
+                    const catX = parseFloat(catMatch[1]);
+                    const catY = parseFloat(catMatch[2]);
+                    
+                    const intersectionX = parseFloat(intersection.getAttribute('cx'));
+                    const intersectionY = parseFloat(intersection.getAttribute('cy'));
+                    
+                    const dogDistance = Math.sqrt(Math.pow(dogX - intersectionX, 2) + Math.pow(dogY - intersectionY, 2));
+                    const catDistance = Math.sqrt(Math.pow(catX - intersectionX, 2) + Math.pow(catY - intersectionY, 2));
+                    
+                    const threshold = 30; // Distancia máxima para considerar correcto
+                    
+                    if (dogDistance < threshold && catDistance < threshold) {
+                        graphResult.innerHTML = '<i class="fas fa-check-circle"></i> ¡Felicidades! Los animales se encontraron en el punto (2, 3)';
+                        graphResult.style.color = '#147324';
+                        graphResult.className = 'game-result success';
+                        
+                        // Animación de éxito
+                        createCelebration();
+                    } else {
+                        graphResult.innerHTML = '<i class="fas fa-times-circle"></i> Sigue intentando. Los animales deben encontrarse en el punto rojo';
+                        graphResult.style.color = '#CC0808';
+                        graphResult.className = 'game-result error';
+                    }
+                }
+            });
+            
+            // Reiniciar el juego
+            resetGraphBtn.addEventListener('click', function() {
+                dogAnimal.setAttribute('transform', 'translate(250, 350)');
+                catAnimal.setAttribute('transform', 'translate(250, 350)');
+                graphResult.innerHTML = '';
+                graphResult.className = 'game-result';
+            });
+            
+            // Mostrar/ocultar pista
+            hintGraphBtn.addEventListener('click', function() {
+                if (graphHint.style.display === 'block') {
+                    graphHint.style.display = 'none';
                 } else {
-                    substitutionResultDiv.innerHTML = `
-                        <div style="color: var(--warning); padding: 20px; border-radius: 15px; background: rgba(255, 183, 77, 0.2);">
-                            <i class="fas fa-times-circle"></i> Incorrecto. La solución correcta es 🐶=3, 🐱=2
-                        </div>
-                    `;
-                    this.classList.add('incorrect');
+                    graphHint.style.display = 'block';
+                }
+            });
+            
+            // Función para crear celebración
+            function createCelebration() {
+                const colors = ['#9c64a6', '#64b5f6', '#ffb74d', '#80cbc4'];
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.style.position = 'fixed';
+                        confetti.style.width = `${Math.random() * 10 + 5}px`;
+                        confetti.style.height = `${Math.random() * 10 + 5}px`;
+                        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.left = `${Math.random() * 100}%`;
+                        confetti.style.top = `-10px`;
+                        confetti.style.opacity = Math.random();
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                        document.body.appendChild(confetti);
+                        
+                        // Animación de caída
+                        let position = -10;
+                        const speed = Math.random() * 3 + 2;
+                        const rotation = Math.random() * 10 - 5;
+                        const fallInterval = setInterval(() => {
+                            position += speed;
+                            confetti.style.top = `${position}px`;
+                            confetti.style.transform += ` rotate(${rotation}deg)`;
+                            if (position > window.innerHeight) {
+                                clearInterval(fallInterval);
+                                confetti.remove();
+                            }
+                        }, 20);
+                    }, i * 30);
+                }
+            }
+        });
+        
+        // Juego de sustitución mágica
+        document.addEventListener('DOMContentLoaded', function() {
+            const magicAnswerBtns = document.querySelectorAll('.magic-game .answer-btn');
+            const magicResultDiv = document.getElementById('magic-result');
+            const retryMagicBtn = document.getElementById('retry-magic-btn');
+            
+            // Función para reiniciar el juego de sustitución
+            function resetMagicGame() {
+                magicResultDiv.innerHTML = '';
+                retryMagicBtn.style.display = 'none';
+                magicAnswerBtns.forEach(btn => {
+                    btn.disabled = false;
+                    btn.classList.remove('correct', 'incorrect');
+                });
+            }
+            
+            // Event listener para los botones de respuesta de sustitución
+            magicAnswerBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Deshabilitamos los botones para evitar múltiples clics
+                    magicAnswerBtns.forEach(b => b.disabled = true);
+                    
+                    const selectedAnswer = this.getAttribute('data-answer');
+                    const correctAnswer = '🐶=3, 🐱=2';
+                    
+                    if (selectedAnswer === correctAnswer) {
+                        magicResultDiv.innerHTML = `
+                            <div style="color: #147324; padding: 20px; border-radius: 15px; background: rgba(20, 115, 36, 0.2);">
+                                <i class="fas fa-check-circle"></i> ¡Correcto! La solución es 🐶=3, 🐱=2
+                            </div>
+                        `;
+                        this.classList.add('correct');
+                    } else {
+                        magicResultDiv.innerHTML = `
+                            <div style="color: #CC0808; padding: 20px; border-radius: 15px; background: rgba(204, 8, 8, 0.2);">
+                                <i class="fas fa-times-circle"></i> Incorrecto. La solución correcta es 🐶=3, 🐱=2
+                            </div>
+                        `;
+                        this.classList.add('incorrect');
+                    }
+                    
+                    // Mostramos el botón de volver a intentar
+                    retryMagicBtn.style.display = 'inline-block';
+                });
+            });
+            
+            // Event listener para el botón de volver a intentar de sustitución
+            retryMagicBtn.addEventListener('click', resetMagicGame);
+        });
+        
+        // Juego de igualación (balanza de animales)
+        document.addEventListener('DOMContentLoaded', function() {
+            const animalBalanceBeamEq = document.getElementById('animal-balance-beam-eq');
+            const leftPlateEq = document.getElementById('left-plate-eq');
+            const rightPlateEq = document.getElementById('right-plate-eq');
+            const leftAnimalsEq = document.getElementById('left-animals-eq');
+            const rightAnimalsEq = document.getElementById('right-animals-eq');
+            const leftValueSpanEq = document.getElementById('left-value-eq');
+            const rightValueSpanEq = document.getElementById('right-value-eq');
+            const checkAnimalBalanceBtnEq = document.getElementById('check-animal-balance-eq');
+            const resetAnimalBalanceBtnEq = document.getElementById('reset-animal-balance-eq');
+            const hintAnimalBalanceBtnEq = document.getElementById('hint-animal-balance-eq');
+            const hintAnimalBalanceTextEq = document.getElementById('hint-animal-balance-text-eq');
+            const animalBalanceResultEq = document.getElementById('animal-balance-result-eq');
+            const animalBlocksEq = document.querySelectorAll('.animal-block-eq');
+            
+            // Variables del juego
+            let leftTotalEq = 0;
+            let rightTotalEq = 0;
+            
+            // Función para actualizar el valor total de un lado
+            function updateSideValueEq(side) {
+                let total = 0;
+                const animals = side === 'left' ? leftAnimalsEq : rightAnimalsEq;
+                const animalElements = animals.querySelectorAll('.animal-in-plate-eq');
+                
+                animalElements.forEach(animal => {
+                    total += parseInt(animal.getAttribute('data-value'));
+                });
+                
+                if (side === 'left') {
+                    leftTotalEq = total;
+                    leftValueSpanEq.textContent = total;
+                } else {
+                    rightTotalEq = total;
+                    rightValueSpanEq.textContent = total;
                 }
                 
-                // Mostramos el botón de volver a intentar
-                substitutionRetryBtn.style.display = 'inline-block';
-            });
-        });
-        
-        // Event listener para el botón de volver a intentar de sustitución
-        substitutionRetryBtn.addEventListener('click', resetSubstitutionGame);
-        
-        // Juego de animalitos (graficación)
-        const gameBoard = document.getElementById('game-board');
-        const dog = document.getElementById('dog');
-        const cat = document.getElementById('cat');
-        const targetZone = document.getElementById('target-zone');
-        const checkAnswerBtn = document.getElementById('check-answer');
-        const resetGraphGameBtn = document.getElementById('reset-graph-game');
-        const hintBtn = document.getElementById('hint-btn');
-        const hintText = document.getElementById('hint-text');
-        const gameResult = document.getElementById('game-result');
-        const celebration = document.getElementById('celebration');
-        
-        // Crear cuadrícula
-        const gridOverlay = document.getElementById('grid-overlay');
-        for (let i = 0; i < 25; i++) {
-            const cell = document.createElement('div');
-            cell.className = 'grid-cell';
-            const row = Math.floor(i / 5);
-            const col = i % 5;
-            cell.textContent = `${col},${4-row}`;
-            gridOverlay.appendChild(cell);
-        }
-        
-        // Configurar el arrastre de los animalitos
-        let draggedElement = null;
-        let offset = { x: 0, y: 0 };
-        
-        function startDrag(e, element) {
-            draggedElement = element;
-            element.classList.add('dragging');
-            const rect = element.getBoundingClientRect();
-            const boardRect = gameBoard.getBoundingClientRect();
-            offset.x = e.clientX - rect.left;
-            offset.y = e.clientY - rect.top;
-            e.preventDefault();
-        }
-        
-        function drag(e) {
-            if (!draggedElement) return;
-            
-            const boardRect = gameBoard.getBoundingClientRect();
-            let x = e.clientX - boardRect.left - offset.x;
-            let y = e.clientY - boardRect.top - offset.y;
-            
-            // Limitar al área del tablero
-            x = Math.max(0, Math.min(gameBoard.clientWidth - draggedElement.offsetWidth, x));
-            y = Math.max(0, Math.min(gameBoard.clientHeight - draggedElement.offsetHeight, y));
-            
-            draggedElement.style.left = `${x}px`;
-            draggedElement.style.top = `${y}px`;
-        }
-        
-        function endDrag() {
-            if (draggedElement) {
-                draggedElement.classList.remove('dragging');
-                draggedElement = null;
-            }
-        }
-        
-        // Event listeners para el perrito
-        dog.addEventListener('mousedown', (e) => startDrag(e, dog));
-        dog.addEventListener('touchstart', (e) => {
-            const touch = e.touches[0];
-            startDrag(touch, dog);
-        });
-        
-        // Event listeners para el gatito
-        cat.addEventListener('mousedown', (e) => startDrag(e, cat));
-        cat.addEventListener('touchstart', (e) => {
-            const touch = e.touches[0];
-            startDrag(touch, cat);
-        });
-        
-        // Event listeners globales para el arrastre
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('mouseup', endDrag);
-        document.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 0) {
-                drag(e.touches[0]);
-            }
-        });
-        document.addEventListener('touchend', endDrag);
-        
-        // Verificar la respuesta
-        checkAnswerBtn.addEventListener('click', function() {
-            const dogRect = dog.getBoundingClientRect();
-            const catRect = cat.getBoundingClientRect();
-            const targetRect = targetZone.getBoundingClientRect();
-            const boardRect = gameBoard.getBoundingClientRect();
-            
-            // Calcular posiciones relativas al tablero
-            const dogX = dogRect.left - boardRect.left + dogRect.width / 2;
-            const dogY = dogRect.top - boardRect.top + dogRect.height / 2;
-            const catX = catRect.left - boardRect.left + catRect.width / 2;
-            const catY = catRect.top - boardRect.top + catRect.height / 2;
-            const targetX = targetRect.left - boardRect.left + targetRect.width / 2;
-            const targetY = targetRect.top - boardRect.top + targetRect.height / 2;
-            
-            // Calcular distancias
-            const dogDistance = Math.sqrt(Math.pow(dogX - targetX, 2) + Math.pow(dogY - targetY, 2));
-            const catDistance = Math.sqrt(Math.pow(catX - targetX, 2) + Math.pow(catY - targetY, 2));
-            
-            // Umbral de distancia para considerar correcto
-            const threshold = 70;
-            
-            if (dogDistance < threshold && catDistance < threshold) {
-                gameResult.innerHTML = '<i class="fas fa-heart"></i> ¡Felicidades! Los animalitos se encontraron en el punto (2, 3)';
-                gameResult.className = 'game-result success';
-                
-                // Mostrar celebración
-                celebration.classList.add('active');
-                createCelebration();
-                
-                // Mover los animalitos al centro del corazón
-                dog.style.left = `${targetX - dogRect.width / 2}px`;
-                dog.style.top = `${targetY - dogRect.height / 2}px`;
-                cat.style.left = `${targetX - catRect.width / 2 + 15}px`;
-                cat.style.top = `${targetY - catRect.height / 2 + 15}px`;
-            } else {
-                gameResult.innerHTML = '<i class="fas fa-times-circle"></i> Sigue intentando. Los animalitos deben encontrarse en el corazón verde';
-                gameResult.className = 'game-result error';
-            }
-        });
-        
-        // Reiniciar el juego de graficación
-        resetGraphGameBtn.addEventListener('click', function() {
-            dog.style.left = '20%';
-            dog.style.top = '80%';
-            cat.style.left = '80%';
-            cat.style.top = '20%';
-            gameResult.innerHTML = '';
-            gameResult.className = 'game-result';
-            celebration.classList.remove('active');
-        });
-        
-        // Mostrar/ocultar pista
-        hintBtn.addEventListener('click', function() {
-            if (hintText.style.display === 'block') {
-                hintText.style.display = 'none';
-            } else {
-                hintText.style.display = 'block';
-            }
-        });
-        
-        // Crear celebración con corazones
-        function createCelebration() {
-            for (let i = 0; i < 25; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.className = 'heart';
-                    heart.innerHTML = '❤️';
-                    heart.style.left = `${Math.random() * 100}%`;
-                    heart.style.top = `${Math.random() * 100}%`;
-                    heart.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
-                    celebration.appendChild(heart);
-                    
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 3000);
-                }, i * 100);
-            }
-        }
-        
-        // Juego de igualación (del primer documento)
-        const animalBalanceBeamEq = document.getElementById('animal-balance-beam-eq');
-        const leftPlateEq = document.getElementById('left-plate-eq');
-        const rightPlateEq = document.getElementById('right-plate-eq');
-        const leftAnimalsEq = document.getElementById('left-animals-eq');
-        const rightAnimalsEq = document.getElementById('right-animals-eq');
-        const leftValueSpanEq = document.getElementById('left-value-eq');
-        const rightValueSpanEq = document.getElementById('right-value-eq');
-        const checkAnimalBalanceBtnEq = document.getElementById('check-animal-balance-eq');
-        const resetAnimalBalanceBtnEq = document.getElementById('reset-animal-balance-eq');
-        const hintAnimalBalanceBtnEq = document.getElementById('hint-animal-balance-eq');
-        const hintAnimalBalanceTextEq = document.getElementById('hint-animal-balance-text-eq');
-        const animalBalanceResultEq = document.getElementById('animal-balance-result-eq');
-        const animalBlocksEq = document.querySelectorAll('.animal-block-eq');
-        
-        // Variables del juego
-        let leftTotalEq = 0;
-        let rightTotalEq = 0;
-        
-        // Función para actualizar el valor total de un lado
-        function updateSideValueEq(side) {
-            let total = 0;
-            const animals = side === 'left' ? leftAnimalsEq : rightAnimalsEq;
-            const animalElements = animals.querySelectorAll('.animal-block-eq');
-            
-            animalElements.forEach(animal => {
-                total += parseInt(animal.getAttribute('data-value'));
-            });
-            
-            if (side === 'left') {
-                leftTotalEq = total;
-                leftValueSpanEq.textContent = total;
-            } else {
-                rightTotalEq = total;
-                rightValueSpanEq.textContent = total;
+                // Actualizar la inclinación de la balanza
+                updateAnimalBalanceEq();
             }
             
-            // Actualizar la inclinación de la balanza
-            updateAnimalBalanceEq();
-        }
-        
-        // Función para actualizar la inclinación de la balanza
-        function updateAnimalBalanceEq() {
-            const diff = leftTotalEq - rightTotalEq;
-            const maxRotation = 20; // Máxima inclinación en grados
-            let rotation = Math.max(-maxRotation, Math.min(maxRotation, diff * 3));
-            animalBalanceBeamEq.style.transform = `rotate(${rotation}deg)`;
-        }
-        
-        // Configurar arrastrar y soltar para los animales
-        animalBlocksEq.forEach(block => {
-            block.addEventListener('dragstart', function(e) {
-                e.dataTransfer.setData('text/plain', this.outerHTML);
-                this.style.opacity = '0.5';
-            });
+            // Función para actualizar la inclinación de la balanza
+            function updateAnimalBalanceEq() {
+                const diff = leftTotalEq - rightTotalEq;
+                const maxRotation = 20; // Máxima inclinación en grados
+                let rotation = Math.max(-maxRotation, Math.min(maxRotation, diff * 3));
+                animalBalanceBeamEq.style.transform = `rotate(${rotation}deg)`;
+            }
             
-            block.addEventListener('dragend', function() {
-                this.style.opacity = '1';
-            });
-        });
-        
-        // Configurar zonas de soltar (los platillos)
-        [leftPlateEq, rightPlateEq].forEach(plate => {
-            plate.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                this.classList.add('drag-over');
-            });
-            
-            plate.addEventListener('dragleave', function() {
-                this.classList.remove('drag-over');
-            });
-            
-            plate.addEventListener('drop', function(e) {
-                e.preventDefault();
-                this.classList.remove('drag-over');
-                
-                const animalHTML = e.dataTransfer.getData('text/plain');
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = animalHTML;
-                const newAnimal = tempDiv.firstChild;
-                
-                // Asignar eventos al nuevo animal
-                newAnimal.addEventListener('dragstart', function(e) {
-                    e.dataTransfer.setData('text/plain', this.outerHTML);
+            // Configurar arrastrar y soltar para los animales
+            animalBlocksEq.forEach(block => {
+                block.addEventListener('dragstart', function(e) {
+                    e.dataTransfer.setData('text/plain', this.getAttribute('data-value'));
+                    e.dataTransfer.setData('animal-icon', this.querySelector('.animal-icon-eq').textContent);
                     this.style.opacity = '0.5';
                 });
                 
-                newAnimal.addEventListener('dragend', function() {
+                block.addEventListener('dragend', function() {
                     this.style.opacity = '1';
                 });
-                
-                // Añadir clase para ajustar tamaño en el platillo
-                newAnimal.classList.add('animal-in-plate-eq');
-                
-                // Añadir el animal al platillo correspondiente
-                const animalsContainer = this.id === 'left-plate-eq' ? leftAnimalsEq : rightAnimalsEq;
-                animalsContainer.appendChild(newAnimal);
-                
-                // Actualizar el valor del lado
-                updateSideValueEq(this.id === 'left-plate-eq' ? 'left' : 'right');
             });
-        });
-        
-        // Permitir soltar animales en la zona de animales disponibles para devolverlos
-        const animalsContainerEq = document.querySelector('.draggable-animals-eq');
-        animalsContainerEq.addEventListener('dragover', function(e) {
-            e.preventDefault();
-        });
-        
-        // Verificar si la balanza está equilibrada
-        checkAnimalBalanceBtnEq.addEventListener('click', function() {
-            if (leftTotalEq === 0 && rightTotalEq === 0) {
-                animalBalanceResultEq.textContent = '¡Coloca animales en ambos lados primero!';
-                animalBalanceResultEq.className = 'game-result-eq error';
-                return;
-            }
             
-            if (leftTotalEq === rightTotalEq) {
-                animalBalanceResultEq.innerHTML = '<i class="fas fa-check-circle"></i> ¡Felicidades! La balanza está equilibrada.';
-                animalBalanceResultEq.className = 'game-result-eq success';
-                // Efecto de celebración
-                createAnimalBalanceCelebrationEq();
-            } else {
-                animalBalanceResultEq.innerHTML = '<i class="fas fa-times-circle"></i> La balanza no está equilibrada. Sigue intentando.';
-                animalBalanceResultEq.className = 'game-result-eq error';
-            }
-        });
-        
-        // Reiniciar el juego
-        resetAnimalBalanceBtnEq.addEventListener('click', function() {
-            leftAnimalsEq.innerHTML = '';
-            rightAnimalsEq.innerHTML = '';
-            leftTotalEq = 0;
-            rightTotalEq = 0;
-            leftValueSpanEq.textContent = '0';
-            rightValueSpanEq.textContent = '0';
-            animalBalanceResultEq.textContent = '';
-            animalBalanceResultEq.className = 'game-result-eq';
-            animalBalanceBeamEq.style.transform = 'rotate(0deg)';
-        });
-        
-        // Mostrar/ocultar pista
-        hintAnimalBalanceBtnEq.addEventListener('click', function() {
-            if (hintAnimalBalanceTextEq.style.display === 'block') {
-                hintAnimalBalanceTextEq.style.display = 'none';
-            } else {
-                hintAnimalBalanceTextEq.style.display = 'block';
-            }
-        });
-        
-        // Función para crear efectos de celebración
-        function createAnimalBalanceCelebrationEq() {
-            const colors = ['#ff5722', '#00bcd4', '#3f51b5', '#ffc107', '#4caf50'];
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.style.position = 'fixed';
-                    confetti.style.width = `${Math.random() * 10 + 5}px`;
-                    confetti.style.height = `${Math.random() * 10 + 5}px`;
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.left = `${Math.random() * 100}%`;
-                    confetti.style.top = `-10px`;
-                    confetti.style.opacity = Math.random();
-                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                    document.body.appendChild(confetti);
+            // Configurar zonas de soltar (los platillos)
+            [leftPlateEq, rightPlateEq].forEach(plate => {
+                plate.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    this.classList.add('drag-over');
+                });
+                
+                plate.addEventListener('dragleave', function() {
+                    this.classList.remove('drag-over');
+                });
+                
+                plate.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('drag-over');
                     
-                    // Animación de caída
-                    let position = -10;
-                    const speed = Math.random() * 3 + 2;
-                    const rotation = Math.random() * 10 - 5;
-                    const fallInterval = setInterval(() => {
-                        position += speed;
-                        confetti.style.top = `${position}px`;
-                        confetti.style.transform += ` rotate(${rotation}deg)`;
-                        if (position > window.innerHeight) {
-                            clearInterval(fallInterval);
-                            confetti.remove();
-                        }
-                    }, 20);
-                }, i * 30);
-            }
-        }
-        
-        // Juego de monstruos (eliminación)
-        const monsters = document.querySelectorAll('.monster');
-        const monsterResult = document.getElementById('monster-result');
-        const resetMonsterGameBtn = document.getElementById('reset-monster-game');
-        const hintMonsterBtn = document.getElementById('hint-monster-btn');
-        const monsterHintText = document.getElementById('monster-hint-text');
-        let monsterGameCompleted = false;
-        
-        // Event listeners para los monstruos
-        monsters.forEach(monster => {
-            monster.addEventListener('click', function() {
-                if (monsterGameCompleted) return;
-                
-                const value = this.getAttribute('data-value');
-                const correctValue = '2'; // Respuesta correcta
-                
-                // Deshabilitar todos los monstruos temporalmente
-                monsters.forEach(m => m.style.pointerEvents = 'none');
-                
-                if (value === correctValue) {
-                    // Respuesta correcta
-                    this.classList.add('correct');
-                    monsterResult.innerHTML = `
-                        <div class="success-animation">
-                            <i class="fas fa-check-circle"></i> ¡Correcto! Multiplicando por 2 obtenemos 6🐶 + 4🐱 = 32
-                        </div>
-                    `;
-                    monsterResult.className = 'game-result success';
+                    const animalValue = e.dataTransfer.getData('text/plain');
+                    const animalIcon = e.dataTransfer.getData('animal-icon');
                     
-                    // Animación de eliminación del monstruo
-                    setTimeout(() => {
-                        this.classList.add('monster-eliminated');
-                        monsterGameCompleted = true;
-                        // Crear celebración
-                        createMonsterCelebration();
-                    }, 1000);
+                    // Crear un nuevo elemento de animal solo con el ícono
+                    const newAnimal = document.createElement('div');
+                    newAnimal.className = 'animal-in-plate-eq';
+                    newAnimal.setAttribute('data-value', animalValue);
+                    newAnimal.textContent = animalIcon;
+                    newAnimal.style.fontSize = '2.5rem';
+                    newAnimal.style.margin = '2px';
+                    
+                    // Añadir el animal al platillo correspondiente
+                    const animalsContainer = this.id === 'left-plate-eq' ? leftAnimalsEq : rightAnimalsEq;
+                    animalsContainer.appendChild(newAnimal);
+                    
+                    // Actualizar el valor del lado
+                    updateSideValueEq(this.id === 'left-plate-eq' ? 'left' : 'right');
+                });
+            });
+            
+            // Permitir soltar animales en la zona de animales disponibles para devolverlos
+            const animalsContainerEq = document.querySelector('.draggable-animals-eq');
+            animalsContainerEq.addEventListener('dragover', function(e) {
+                e.preventDefault();
+            });
+            
+            // Verificar si la balanza está equilibrada
+            checkAnimalBalanceBtnEq.addEventListener('click', function() {
+                if (leftTotalEq === 0 && rightTotalEq === 0) {
+                    animalBalanceResultEq.textContent = '¡Coloca animales en ambos lados primero!';
+                    animalBalanceResultEq.style.color = '#CC0808';
+                    animalBalanceResultEq.className = 'game-result-eq error';
+                    return;
+                }
+                
+                if (leftTotalEq === rightTotalEq) {
+                    animalBalanceResultEq.innerHTML = '<i class="fas fa-check-circle"></i> ¡Felicidades! La balanza está equilibrada.';
+                    animalBalanceResultEq.style.color = '#147324';
+                    animalBalanceResultEq.className = 'game-result-eq success';
+                    // Efecto de celebración
+                    createAnimalBalanceCelebrationEq();
                 } else {
-                    // Respuesta incorrecta
-                    this.classList.add('incorrect');
-                    monsterResult.innerHTML = `
-                        <div>
-                            <i class="fas fa-times-circle"></i> ¡Inténtalo de nuevo! Recuerda que necesitamos que los valores del gato sean opuestos.
-                        </div>
-                    `;
-                    monsterResult.className = 'game-result error';
-                    
-                    // Rehabilitar monstruos después de un tiempo
-                    setTimeout(() => {
-                        monsters.forEach(m => {
-                            m.style.pointerEvents = 'auto';
-                            m.classList.remove('incorrect');
-                        });
-                    }, 1500);
+                    animalBalanceResultEq.innerHTML = '<i class="fas fa-times-circle"></i> La balanza no está equilibrada. Sigue intentando.';
+                    animalBalanceResultEq.style.color = '#CC0808';
+                    animalBalanceResultEq.className = 'game-result-eq error';
                 }
             });
-        });
-        
-        // Función para crear celebración con monstruos
-        function createMonsterCelebration() {
-            const monstersEmojis = ['👾', '👻', '👹', '👺', '🤖', '👽', '🤡'];
-            for (let i = 0; i < 30; i++) {
-                setTimeout(() => {
-                    const monster = document.createElement('div');
-                    monster.style.position = 'fixed';
-                    monster.style.fontSize = `${Math.random() * 2.5 + 1.5}rem`;
-                    monster.style.left = `${Math.random() * 100}%`;
-                    monster.style.top = `${Math.random() * 100}%`;
-                    monster.style.opacity = Math.random();
-                    monster.style.zIndex = '1000';
-                    monster.innerHTML = monstersEmojis[Math.floor(Math.random() * monstersEmojis.length)];
-                    monster.style.pointerEvents = 'none';
-                    document.body.appendChild(monster);
-                    
-                    // Animación de caída
-                    let position = 0;
-                    const speed = Math.random() * 3 + 2;
-                    const rotation = Math.random() * 10 - 5;
-                    const fallInterval = setInterval(() => {
-                        position += speed;
-                        monster.style.top = `${position}px`;
-                        monster.style.transform += ` rotate(${rotation}deg)`;
-                        monster.style.opacity -= 0.01;
-                        if (position > window.innerHeight || monster.style.opacity <= 0) {
-                            clearInterval(fallInterval);
-                            monster.remove();
-                        }
-                    }, 20);
-                }, i * 100);
-            }
-        }
-        
-        // Reiniciar el juego de monstruos
-        resetMonsterGameBtn.addEventListener('click', function() {
-            monsterGameCompleted = false;
-            monsterResult.innerHTML = '';
-            monsterResult.className = 'game-result';
-            monsters.forEach(monster => {
-                monster.classList.remove('correct', 'incorrect', 'monster-eliminated');
-                monster.style.pointerEvents = 'auto';
+            
+            // Reiniciar el juego
+            resetAnimalBalanceBtnEq.addEventListener('click', function() {
+                leftAnimalsEq.innerHTML = '';
+                rightAnimalsEq.innerHTML = '';
+                leftTotalEq = 0;
+                rightTotalEq = 0;
+                leftValueSpanEq.textContent = '0';
+                rightValueSpanEq.textContent = '0';
+                animalBalanceResultEq.textContent = '';
+                animalBalanceResultEq.className = 'game-result-eq';
+                animalBalanceBeamEq.style.transform = 'rotate(0deg)';
             });
+            
+            // Mostrar/ocultar pista
+            hintAnimalBalanceBtnEq.addEventListener('click', function() {
+                if (hintAnimalBalanceTextEq.style.display === 'block') {
+                    hintAnimalBalanceTextEq.style.display = 'none';
+                } else {
+                    hintAnimalBalanceTextEq.style.display = 'block';
+                }
+            });
+            
+            // Función para crear efectos de celebración
+            function createAnimalBalanceCelebrationEq() {
+                const colors = ['#ff5722', '#00bcd4', '#3f51b5', '#ffc107', '#4caf50'];
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.style.position = 'fixed';
+                        confetti.style.width = `${Math.random() * 10 + 5}px`;
+                        confetti.style.height = `${Math.random() * 10 + 5}px`;
+                        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.left = `${Math.random() * 100}%`;
+                        confetti.style.top = `-10px`;
+                        confetti.style.opacity = Math.random();
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                        confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                        document.body.appendChild(confetti);
+                        
+                        // Animación de caída
+                        let position = -10;
+                        const speed = Math.random() * 3 + 2;
+                        const rotation = Math.random() * 10 - 5;
+                        const fallInterval = setInterval(() => {
+                            position += speed;
+                            confetti.style.top = `${position}px`;
+                            confetti.style.transform += ` rotate(${rotation}deg)`;
+                            if (position > window.innerHeight) {
+                                clearInterval(fallInterval);
+                                confetti.remove();
+                            }
+                        }, 20);
+                    }, i * 30);
+                }
+            }
         });
         
-        // Mostrar/ocultar pista
-        hintMonsterBtn.addEventListener('click', function() {
-            if (monsterHintText.style.display === 'block') {
-                monsterHintText.style.display = 'none';
-            } else {
-                monsterHintText.style.display = 'block';
+        // Juego de monstruos (eliminación)
+        document.addEventListener('DOMContentLoaded', function() {
+            const monsters = document.querySelectorAll('.monster');
+            const monsterResult = document.getElementById('monster-result');
+            const resetMonsterGameBtn = document.getElementById('reset-monster-game');
+            const hintMonsterBtn = document.getElementById('hint-monster-btn');
+            const monsterHintText = document.getElementById('monster-hint-text');
+            let monsterGameCompleted = false;
+            
+            // Event listeners para los monstruos
+            monsters.forEach(monster => {
+                monster.addEventListener('click', function() {
+                    if (monsterGameCompleted) return;
+                    
+                    const value = this.getAttribute('data-value');
+                    const correctValue = '2'; // Respuesta correcta
+                    
+                    // Deshabilitar todos los monstruos temporalmente
+                    monsters.forEach(m => m.style.pointerEvents = 'none');
+                    
+                    if (value === correctValue) {
+                        // Respuesta correcta
+                        this.classList.add('correct');
+                        monsterResult.innerHTML = `
+                            <div class="success-animation">
+                                <i class="fas fa-check-circle"></i> ¡Correcto! Multiplicando por 2 obtenemos 6🐶 + 4🐱 = 32
+                            </div>
+                        `;
+                        monsterResult.style.color = '#147324';
+                        monsterResult.className = 'game-result success';
+                        
+                        // Animación de eliminación del monstruo
+                        setTimeout(() => {
+                            this.classList.add('monster-eliminated');
+                            monsterGameCompleted = true;
+                            // Crear celebración
+                            createMonsterCelebration();
+                        }, 1000);
+                    } else {
+                        // Respuesta incorrecta
+                        this.classList.add('incorrect');
+                        monsterResult.innerHTML = `
+                            <div>
+                                <i class="fas fa-times-circle"></i> ¡Inténtalo de nuevo! Recuerda que necesitamos que los valores del gato sean opuestos.
+                            </div>
+                        `;
+                        monsterResult.style.color = '#CC0808';
+                        monsterResult.className = 'game-result error';
+                        
+                        // Rehabilitar monstruos después de un tiempo
+                        setTimeout(() => {
+                            monsters.forEach(m => {
+                                m.style.pointerEvents = 'auto';
+                                m.classList.remove('incorrect');
+                            });
+                        }, 1500);
+                    }
+                });
+            });
+            
+            // Función para crear celebración con monstruos
+            function createMonsterCelebration() {
+                const monstersEmojis = ['👾', '👻', '👹', '👺', '🤖', '👽', '🤡'];
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        const monster = document.createElement('div');
+                        monster.style.position = 'fixed';
+                        monster.style.fontSize = `${Math.random() * 2.5 + 1.5}rem`;
+                        monster.style.left = `${Math.random() * 100}%`;
+                        monster.style.top = `${Math.random() * 100}%`;
+                        monster.style.opacity = Math.random();
+                        monster.style.zIndex = '1000';
+                        monster.innerHTML = monstersEmojis[Math.floor(Math.random() * monstersEmojis.length)];
+                        monster.style.pointerEvents = 'none';
+                        document.body.appendChild(monster);
+                        
+                        // Animación de caída
+                        let position = 0;
+                        const speed = Math.random() * 3 + 2;
+                        const rotation = Math.random() * 10 - 5;
+                        const fallInterval = setInterval(() => {
+                            position += speed;
+                            monster.style.top = `${position}px`;
+                            monster.style.transform += ` rotate(${rotation}deg)`;
+                            monster.style.opacity -= 0.01;
+                            if (position > window.innerHeight || monster.style.opacity <= 0) {
+                                clearInterval(fallInterval);
+                                monster.remove();
+                            }
+                        }, 20);
+                    }, i * 100);
+                }
             }
+            
+            // Reiniciar el juego de monstruos
+            resetMonsterGameBtn.addEventListener('click', function() {
+                monsterGameCompleted = false;
+                monsterResult.innerHTML = '';
+                monsterResult.className = 'game-result';
+                monsters.forEach(monster => {
+                    monster.classList.remove('correct', 'incorrect', 'monster-eliminated');
+                    monster.style.pointerEvents = 'auto';
+                });
+            });
+            
+            // Mostrar/ocultar pista
+            hintMonsterBtn.addEventListener('click', function() {
+                if (monsterHintText.style.display === 'block') {
+                    monsterHintText.style.display = 'none';
+                } else {
+                    monsterHintText.style.display = 'block';
+                }
+            });
         });
     </script>
 </body>
